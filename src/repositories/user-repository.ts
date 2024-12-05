@@ -12,14 +12,22 @@ class UserRepository {
             // Create a new user
             const user = await User.create({ username: username, password: password });
             // Return the user without the password
-            return await this.findByUsernameWithoutPassword(username);
+            if(!user) {
+                throw new InternalServerError();
+            }
+            return this.findByUsernameWithoutPassword(username);
+
 
         } catch (error) {
             // Handle errors
             console.log(error);
 
             // Check the error type
-            if(error instanceof Error){
+            if(error instanceof AppError){
+                // If the error is an app error, rethrow it
+                throw error;
+            }
+            else if(error instanceof Error){
                 if(error.name === 'validationError'){
                    //  Check if the error is a validation error
                    throw new BadRequestError(error.message);

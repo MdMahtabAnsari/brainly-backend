@@ -1,5 +1,5 @@
 import ContentService from "../services/content-service";
-import {Request, Response} from "express";
+import {Response} from "express";
 import {CustomRequestType} from "../utils/types/custom-request-type";
 import AppError from "../utils/errors/app-error";
 const contentService = new ContentService();

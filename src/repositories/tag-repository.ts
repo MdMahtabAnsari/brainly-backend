@@ -2,7 +2,6 @@ import Tag from "../models/tag-model";
 import InternalServerError from "../utils/errors/internal-server-error";
 import BadRequestError from "../utils/errors/bad-request-error";
 import ConflictError from "../utils/errors/conflict-error";
-import AppError from "../utils/errors/app-error";
 
 class TagRepository {
     async create(title: string) {

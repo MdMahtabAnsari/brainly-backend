@@ -1,9 +1,7 @@
 import Link from '../models/link-model';
 import InternalServerError from '../utils/errors/internal-server-error';
 import BadRequestError from '../utils/errors/bad-request-error';
-import NotFoundError from '../utils/errors/not-found-error';
 import ConflictError from '../utils/errors/conflict-error';
-import AppError from '../utils/errors/app-error';
 import {Types} from 'mongoose';
 
 class LinkRepository {
